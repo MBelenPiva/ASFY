@@ -11,7 +11,7 @@ namespace ASFY_Proyecto.Controllers
     {
         public ActionResult InicioSesion()
         {
-           ASFY.InicializarASFY();
+           //ASFY.InicializarASFY();
             return View();
         }
 
@@ -25,15 +25,15 @@ namespace ASFY_Proyecto.Controllers
             return View();
         }
 
-        public ActionResult Programas(int codigoProgramas)
+        public ActionResult RutinasPorProgramas(int codigoProgramas)
         {
             ViewBag.RutinasMostrarProgramas = BDD.ObtenerRutinasPorProgramas(codigoProgramas);
             return View();
         }
 
-        public ActionResult UnPrograma(int codigo)
+        public ActionResult Programas(int codigo)
         {
-            ViewBag.Programas = BDD.ObtenerUnPrograma(codigo);
+            ViewBag.Programas = BDD.ObtenerProgramas(codigo);
             return View();
         }
         public ActionResult MiPerfil()

@@ -6,7 +6,7 @@
 <br>
 <br>
 
-@foreach (UnPrograma programas in ViewBag.Programas)
+@foreach (Programas programas in ViewBag.Programas)
 {
 
     <div class="container">
@@ -24,34 +24,6 @@
                 <tr>
                     <th scope="row">2</th>
                     <td>@programas.Descripcion</td>
-                </tr>
-            </tbody>
-        </table>
-
-    </div>
-}
-
-
-
-@foreach (Rutinas rutinas in ViewBag.RutinasMostrarProgramas)
-{
-
-    <div class="container">
-        <table class="table">
-            <thead>
-                <tr>
-                    <th scope="col">Numero de Programa</th>
-                    <th scope="col">Rutinas</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <th scope="row">1</th>
-                    <td>@rutinas.Nombre</td>
-                </tr>
-                <tr>
-                    <th scope="row">2</th>
-                    <td>@rutinas.codigoProgramas</td>
                 </tr>
             </tbody>
         </table>
