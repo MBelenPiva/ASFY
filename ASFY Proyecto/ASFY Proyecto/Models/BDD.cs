@@ -54,9 +54,9 @@ namespace ASFY_Proyecto.Models
             return listaRutinas;
         }
 
-        public static List<UnPrograma> ObtenerUnPrograma()
+        public static List<Programas> ObtenerProgramas(int codigo)
         {
-            List<UnPrograma> listaUnPrograma = new List<UnPrograma>();
+            List<Programas> listaProgramas = new List<Programas>();
             SqlConnection con = BDD.Conectar();
             SqlCommand consulta = con.CreateCommand();
             consulta.CommandText = "Select * from Programas";
@@ -69,11 +69,11 @@ namespace ASFY_Proyecto.Models
                 int IdCategoria = Convert.ToInt32(lector["IdCategoria"]);
 
 
-                UnPrograma programas = new UnPrograma(Id, Nombre, Descripcion, IdCategoria);
-                listaUnPrograma.Add(programas);
+                Programas programas = new Programas(Id, Nombre, Descripcion, IdCategoria);
+                listaProgramas.Add(programas);
             }
             BDD.Desconectar(con);
-            return listaUnPrograma;
+            return listaProgramas;
         }
 
         public static List<Rutinas> ObtenerRutinasPorProgramas(int codigoProgramas)

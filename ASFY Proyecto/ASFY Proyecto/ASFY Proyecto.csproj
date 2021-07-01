@@ -126,9 +126,9 @@
     </Compile>
     <Compile Include="Models\ASFY.cs" />
     <Compile Include="Models\BDD.cs" />
-    <Compile Include="Models\Programas.cs" />
+    <Compile Include="Models\RutinasPorProgramas.cs" />
     <Compile Include="Models\Rutinas.cs" />
-    <Compile Include="Models\UnPrograma.cs" />
+    <Compile Include="Models\Programas.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -174,11 +174,11 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\ASFY\InicioSesion.cshtml" />
     <Content Include="Views\ASFY\Home.cshtml" />
-    <Content Include="Views\ASFY\Programas.cshtml" />
+    <Content Include="Views\ASFY\RutinasPorProgramas.cshtml" />
     <Content Include="Views\ASFY\MiPerfil.cshtml" />
     <Content Include="Views\ASFY\QuienesSomos.cshtml" />
     <Content Include="Views\ASFY\Registrarse.cshtml" />
-    <Content Include="Views\ASFY\UnPrograma.cshtml" />
+    <Content Include="Views\ASFY\Programas.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

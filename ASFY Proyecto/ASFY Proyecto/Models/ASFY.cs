@@ -9,8 +9,8 @@ namespace ASFY_Proyecto.Models
     public class ASFY
     {
         private static List<Rutinas> _listaRutinas = new List<Rutinas>();
-        private static List<Programas> _listaProgramas = new List<Programas>();
-        private static List<UnPrograma> _listaUnPrograma = new List<UnPrograma>();
+        private static List<RutinasPorProgramas> _listaRutinasPorProgramas = new List<RutinasPorProgramas>();
+        private static List<RutinasPorProgramas> _listaProgramas = new List<RutinasPorProgramas>();
 
 
         public static List<Rutinas> listaRutinas
@@ -25,7 +25,20 @@ namespace ASFY_Proyecto.Models
                 _listaRutinas = value;
             }
         }
-        public static List<Programas> listaProgramas
+        public static List<RutinasPorProgramas> listaRutinasPorProgramas
+        {
+            get
+            {
+                return _listaRutinasPorProgramas;
+            }
+
+            private set
+            {
+                _listaRutinasPorProgramas = value;
+            }
+        }
+
+        public static List<RutinasPorProgramas> listaProgramas
         {
             get
             {
@@ -38,28 +51,15 @@ namespace ASFY_Proyecto.Models
             }
         }
 
-        public static List<UnPrograma> listaUnPrograma
-        {
-            get
-            {
-                return _listaUnPrograma;
-            }
-
-            private set
-            {
-                _listaUnPrograma = value;
-            }
-        }
-
         //Metodos
         public static List<Rutinas> ListarRutinas()
         {
             return _listaRutinas;
         }
 
-        public static List<UnPrograma> ListarUnPrograma()
+        public static List<RutinasPorProgramas> ListarProgramas()
         {
-            return _listaUnPrograma;
+            return _listaProgramas;
         }
 
         public static List<Rutinas> ListarRutinas(int codigoProgramas)
@@ -67,7 +67,7 @@ namespace ASFY_Proyecto.Models
             List<Rutinas> devolver = new List<Rutinas>();
             for (int k = 0; k < _listaProgramas.Count; k++)
             {
-                if (codigoProgramas == _listaProgramas[k].codigo)
+                if (codigoProgramas == _listaRutinasPorProgramas[k].codigo)
                 {
                     devolver.Add(_listaRutinas[k]);
                 }
@@ -75,31 +75,31 @@ namespace ASFY_Proyecto.Models
             return devolver;
         }
 
-        public static List<UnPrograma> ListarUnPrograma(int codigo)
+        public static List<RutinasPorProgramas> ListarProgramas(int codigo)
         {
-            List<UnPrograma> devolver = new List<UnPrograma>();
-            for (int k = 0; k < _listaUnPrograma.Count; k++)
+            List<RutinasPorProgramas> devolver = new List<RutinasPorProgramas>();
+            for (int k = 0; k < _listaProgramas.Count; k++)
             {
-                if (codigo == _listaUnPrograma[k].codigo)
+                if (codigo == _listaProgramas[k].codigo)
                 {
-                    devolver.Add(_listaUnPrograma[k]);
+                    devolver.Add(_listaProgramas[k]);
                 }
             }
             return devolver;
         }
 
-        public static List<Programas> ListaProgramas()
+        public static List<RutinasPorProgramas> ListaRutinasPorProgramas()
         {
             //Este metodo solo busca devolver la lista de programas
-            return _listaProgramas;
+            return _listaRutinasPorProgramas;
         }
 
-        public static void InicializarASFY()
-        {
+       // public static void InicializarASFY()
+        //{
 
-            _listaRutinas = BDD.ObtenerRutinas(); //Guardo la lista de rutinas invocando a obtener rutinas que accede a la base de datos
-            _listaUnPrograma = BDD.ObtenerUnPrograma(); 
-        }
+          //  _listaRutinas = BDD.ObtenerRutinas(); //Guardo la lista de rutinas invocando a obtener rutinas que accede a la base de datos
+            //_listaProgramas = BDD.ObtenerProgramas();
+        //}
 
         public static Rutinas ObtenerRutinas(int codigo)
         {
@@ -107,9 +107,9 @@ namespace ASFY_Proyecto.Models
             return rutinas; //Devuelvo las rutinas 
         }
 
-        public static UnPrograma ObtenerProgramas(int codigo)
+        public static RutinasPorProgramas Programas(int codigo)
         {
-            UnPrograma programas = _listaUnPrograma.Find(x => x.codigo.Equals(codigo));
+            RutinasPorProgramas programas = _listaProgramas.Find(x => x.codigo.Equals(codigo));
             return programas;  //Devuelve una lista de los programas
         }
 
